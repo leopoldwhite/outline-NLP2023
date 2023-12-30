@@ -83,11 +83,32 @@
       - 基于RNN
       - 基于LSTM
 
-### 词性标注
+### 词性标注 part-of-speech tagging (POS tagging)
 
-- HMM
-- ~~CRF(不考)~~
-- 序列标注
+- 概述 P88-94
+- 方法
+  - Rule-Based (基于规则的方法)
+  - Learning-Based (基于学习的方法)
+    - 统计模型
+      - **隐马尔可夫模型 (HMM) P116-182**
+        - 定义 P116-129
+        - HMM for ice cream task P130-132
+        - 三个基本问题 （机器学习第五章ppt）
+          - Problem 1 (估算问题)
+            - 计算观测的似然 132-138
+            - 前向算法 139-145
+            - 后向算法 147-149
+          - Problem 2 (解码问题)
+            - the Viterbi algorithm 152-158
+          - Problem 3 (参数学习)
+            - 前向-后向算法 159-168
+        - HMM应用于POS Tagging 169-172
+      - ~~条件随机域模型 (CRF)~~
+    - 规则学习
+      - 基于转换的学习 (TBL)
+- 其他序列标注任务
+  - 命名实体识别
+  - 分词
 
 ### 词义分析
 
