@@ -83,7 +83,7 @@
       - 基于RNN
       - 基于LSTM
 
-### 词性标注 part-of-speech tagging (POS tagging)
+### 词性标注 part-of-speech tagging (POS tagging) (L)
 
 - 概述 P88-94
 - 方法
