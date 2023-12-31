@@ -215,7 +215,7 @@
   - A ——> BC 或 A ——> α
   - 即生成式右侧仅能出现以下两种情况：两个非终结符 / 一个终结符
 - 应用句法规则生成句子、应用句法规则构建句法树
-  -![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/0398c9f9-4676-4b3c-8054-d59d22488e86)
+  -![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/0398c9f9-4676-4b3c-8054-d59d22488e86 width=10)
 - **CKY句法分析**
   - CKY算法
     - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/3282b854-9b92-4d34-8a3d-4c36ba842b1d)
