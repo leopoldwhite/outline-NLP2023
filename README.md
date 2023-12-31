@@ -167,7 +167,7 @@
 - L6中的句法分析（Parsing）：专指短语结构分析
   - 输入：句子； 输出：句法树
   - 短语：     S（sentence，句子）、NP（名词短语）、VP（动词短语）、PP（介词短语）
-  - 词性类别：  N（noun，名词）、 V（verb，动词；而且 Vi为不及物动词、Vt为及物动词）、P（介词）、DT（determiner， 限定词the）
+  - 词性类别：  N（noun，名词）、 V（verb，动词；而且 Vi为不及物动词、Vt为及物动词）、Adj（形容词）、Adv（副词）、P（介词）、DT（determiner， 限定词the）
 
 - 形式语法
   - **形式语法是一个4元组 G=(N, ∑, P, S)**
@@ -210,38 +210,32 @@
 ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/86e6602c-284a-4fba-abe1-d57c332fd06f)
 
 ### （2）句法分析2（L7）
-- 一个受Chomsky范式约束的CFG句法 G = (T, N, S, R)   所有的 Chomsky 范式的文法都是上下文无关，反过来，所有上下文无关文法都可以有效的变换成等价的 Chomsky 范式的文法
+- **一个受Chomsky范式约束的CFG句法** G = (T, N, S, R)   所有的 Chomsky 范式的文法都是上下文无关，反过来，所有上下文无关文法都可以有效的变换成等价的 Chomsky 范式的文法
   文法 G=(T, N, S, R) 的 R 中的所有规则满足如下形式：（其中 A、B、C ∈ N 非终止符 ； α ∈ T 终止符）
   - A ——> BC 或 A ——> α
   - 即生成式右侧仅能出现以下两种情况：两个非终结符 / 一个终结符
 - 应用句法规则生成句子、应用句法规则构建句法树
-  -![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/0398c9f9-4676-4b3c-8054-d59d22488e86 width=10)
+  -<img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/0398c9f9-4676-4b3c-8054-d59d22488e86" width="200" height="200">
 - **CKY句法分析**
   - CKY算法
     - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/3282b854-9b92-4d34-8a3d-4c36ba842b1d)
     - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/53b33a18-a8ff-48cf-a9f4-4507c4f5961f)
     - 例题
       - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/70fa2c15-737b-4a83-a6d6-0d1cc707e7a4)
+- 句法分析可能造成的歧义
+  - 词性歧义、名词修饰语歧义、介词短语修饰语歧义、边界歧义
+- **概率上下文无关法**（ Probabilistic context-free grammars (PCFGs）  或者   Stochastic context-free grammars (SCFGs) ）
+  - 一个概率上下文无关文法可以表示为一个五元组 G = (T, N, S, R, P)
+    - 其中，P：概率函数，为每个重写规则赋予一个概率值
+    - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/92534ae4-936f-40b7-a120-ecbbde2e2d3d)
+  - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/831e5468-a9a7-42ca-9b3e-fb0b1a8eccb2)
+    - 对于句子s和其可能的句法导出树集合Γ(s)，PCFG为Γ(s)中的每棵树t赋予一个概率 p(t)，即得到候选树按照概率的排序。概率最大对应的树 即为句子S最有可能的句法树
+  - PCFG的两个问题：句法规则学习得到PCFG、基于PCFG的句法分析从从多个候选树中找出一个概率最大的树
+    - 从treebank（词库）中统计重写规则、并计算其概率
+  - PCFG的三个假设：位置不变性、上下文无关、祖先节点无关
+  - 
 
 
-
-
-对于长度从1到句子长度n的每一个值： // 非终结符规则
-    对于起始位置从1到n - (长度 - 1)
-        终止位置 = 起始位置 + 长度 - 1
-        对于中间位置从起始位置到终止位置 - 1： // 二元规则
-            对于所有非终结符X在[start, middle]范围内：
-                对于所有非终结符Y在[middle + 1, end]范围内：
-                    对于规则A → XY：
-                        在位置[start, end]添加新的图表条目A
-
-        对于所有非终结符X在[start, end]范围内： // 一元规则
-            对于规则A → X：
-                在位置[start, end]添加新的图表条目A
-
-
-
- 
 
 
 
