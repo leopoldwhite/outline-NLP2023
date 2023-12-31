@@ -111,20 +111,28 @@
 ### 词义分析 (L5)
 
 - 基于符号的词义分析
-  - 借鉴词典的词义定义
+  - 借鉴词典的词义定义（寻找基本词（即义素、语义特征、义原）的方法）
     - 专家定义 P11-13
     - 自动发现 P14
-  - 利用词间关系定义 P18-42
-- 基于数值的词义分析
-  - point embedding 基于向量
-
-    - 基于统计的高维向量及其降维
-
-      - 分布式词义表示 47-49
-      - 降维 50-51
-    - 基于预测的低维向量
-
-      - CBOW 59-75
+  - 利用词间关系定义（词间关系：即两个词的某两个义位之间的关系，主要是词义关系） P18-42
+    - 例如有：上下义位关系(Hyponymy)、全体-成员关系(Ensemble-Member)、整体-部分关系(Whole-Part)、同义关系(Synonymy)等关系
+    - 词义消歧(WordSense Disambiguation:WSD)的两类具体任务：Lexical Sample任务（某个特定词）、All-words WSD任务（所有目标多义词）
+      
+- 基于数值（向量）的词义分析
+  - （可分为：point embedding（一个N维的实向量）、Gaussian embedding（一个N维的高斯分布））
+  -  有3种获得embedding的方法
+    - 1、基于全局上下文的统计方法：先建立高维词向量，之后基于降维技术获得低维词向量
+    - 2、基于局部上下文的预测方法：直接获得低维词向量的word2vecter(CBOW,SGNG)等。如：**CBOW** + Hierarchical SoftMax、**Skip-Gram** + Negative Sampling
+    - 3、二者的结合：如GLoVe
+  - 1、分布式词义表示 47-49
+    - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/4a765052-eb79-43fe-8507-6e388d3ef144)
+    - 降维 50-51
+      - 选择某些维（如TF-IDF）、或者SVD进行分解
+  - 2、基于预测的低维向量
+    ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/99c2fdb8-ba0c-46af-8f52-800d5459cfe4)
+    - **CBOW** + Hierarchical SoftMax 59-75
+    - **Skip-Gram** + Negative Sampling 
+      - CBOW 
       - skip-gram (SG) 77-91
       - 评估 93-96
       - 发展 97-110
