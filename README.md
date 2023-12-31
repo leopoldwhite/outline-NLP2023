@@ -13,15 +13,16 @@
 **可能出现手写代码，比如"手写k-means程序", 可以是伪代码, 再举个例子, "把文本分类再做一遍", 评分标准是基本步骤是不是都在，而不是一定要过编译，能跑之类的, 注重的是程序的完整性和程序的有效性**
 **上课没讲过的/发的PPT里没有的不会考**
 
-## 语言模型
+
+# 语言模型
 
 - n-gram
   - 建模
 - 神经网络语言模型(NNLM):
 
-## 词
+# 词
 
-### 词法分析（L4）
+## 一、词法分析（L4）
 
 - 形态分析(L4 P3-15)
   - 基本任务
@@ -81,7 +82,7 @@
       - 基于RNN
       - 基于LSTM
 
-### 词性标注 part-of-speech tagging (POS tagging) (L4)
+## 二、词性标注 part-of-speech tagging (POS tagging) (L4)
 
 - 概述 P88-94
 - 方法
@@ -108,7 +109,7 @@
   - 命名实体识别
   - 分词
 
-### 词义分析 (L5)
+## 三、词义分析 (L5)
 
 - 基于符号的词义分析
   - 借鉴词典的词义定义（寻找基本词（即义素、语义特征、义原）的方法）
@@ -127,20 +128,39 @@
   - 1、分布式词义表示 47-49
     - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/4a765052-eb79-43fe-8507-6e388d3ef144)
     - 降维 50-51
-      - 选择某些维（如TF-IDF）、或者SVD进行分解
+      - 选择某些维（如TF-IDF）、SVD进行分解、PCA降维
   - 2、基于预测的低维向量
     ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/99c2fdb8-ba0c-46af-8f52-800d5459cfe4)
-    - **CBOW** + Hierarchical SoftMax 59-75
-    - **Skip-Gram** + Negative Sampling 
-      - CBOW 
-      - skip-gram (SG) 77-91
-      - 评估 93-96
-      - 发展 97-110
+    - **CBOW** + Hierarchical SoftMax    59-75
+      - CBOW：用周围词预测中心词，从而利用中心词的预测结果情况，使用GradientDesent方法，不断的去调整周围词的向量。预测次数/复杂度大概是O(V)
+      - 分层Softmax：将一个V分类分解为一系列的二分类
+        - 输出层是一个基于词频的哈夫曼树
+        - 计算达到某个词 Wi 的路径总似然 (σ为Sigmoid函数),即为某个二分类的概率
+        - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/a20f2616-522f-49d4-8c10-81d65ceb7b47)
+  
+    - **Skip-Gram** + Negative Sampling    77-91
+      - Skip-Gram: 用中心词来预测周围的词，从而利用周围的词的预测结果情况，使用GradientDecent来不断的调整中心词的词向量。预测次数/复杂度大概是O(KV)，假设上下文窗口为K（即目标词前、后各取K个词）
+      - 负例采样分布：
+        - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/c834e930-eee0-43a8-9bde-c4f7d4f5d59a)
+        - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/2fae2784-198d-4189-83f0-0e69a99249e5)
+        - 参数优化调整：误差反传、梯度下降（随机梯度下降法 SGD）
+    - 评估 93-96
+      - 外部任务、内部任务（词相似度、词类比） 
+    - 发展 97-110 
+      -GloVe（Global vector）： 利用全局统计信息， 词（目标词）-词（上下文）的同现概率的比例
+      ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/fb6db2a4-3ce8-48dc-ba3f-2c4f2fd7fe37)
+      ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/9f627e35-f5ef-470c-b992-4356603e1f1a)
 
-## 句子分析
 
-### 句法分析
 
+
+
+# 句子分析
+
+## 一、句法分析
+ 有两种不同的句法结构：依存结构、短语结构
+ 依存结构：说明词和其它词之间的依赖关系（从属关系、支配关系等）
+ 短语结构：
 - 基于短语结构的句法分析：将句子表示成嵌套的短语成分
 
   - 输入句子，输出（短语）句法树 L6, P1-13
@@ -164,14 +184,14 @@
   - 评价 P65-66
 - 基于依存关系的句法分析（依存句法树要会画）
 
-### 句义分析
+## 二、句义分析
 
 - SRL
 - ~~RNN / Attention (不考)~~
 
-### ~~篇章分析(不考)~~
+## ~~篇章分析(不考)~~
 
-## NLP应用
+# NLP应用
 
 - 分类(只考最基本的基于统计的分类模型，不考基于神经网络的)
 - MT(机器翻译, 看例题)
