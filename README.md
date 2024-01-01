@@ -217,14 +217,14 @@
 - 应用句法规则生成句子、应用句法规则构建句法树
   -<img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/0398c9f9-4676-4b3c-8054-d59d22488e86" width="200" height="200">
 - **CKY句法分析**
-  - CKY算法
+  - CKY算法  P10-29
     - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/3282b854-9b92-4d34-8a3d-4c36ba842b1d)
     - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/53b33a18-a8ff-48cf-a9f4-4507c4f5961f)
     - 例题
       - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/70fa2c15-737b-4a83-a6d6-0d1cc707e7a4)
 - 句法分析可能造成的歧义
   - 词性歧义、名词修饰语歧义、介词短语修饰语歧义、边界歧义
-- **概率上下文无关法**（ Probabilistic context-free grammars (PCFGs）  或者   Stochastic context-free grammars (SCFGs) ）
+- **概率上下文无关法**（ Probabilistic context-free grammars (PCFGs）  或者   Stochastic context-free grammars (SCFGs) ）   P35-63
   - 一个概率上下文无关文法可以表示为一个五元组 G = (T, N, S, R, P)
     - 其中，P：概率函数，为每个重写规则赋予一个概率值
     - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/92534ae4-936f-40b7-a120-ecbbde2e2d3d)
@@ -233,33 +233,23 @@
   - PCFG的两个问题：句法规则学习得到PCFG、基于PCFG的句法分析从从多个候选树中找出一个概率最大的树
     - 从treebank（词库）中统计重写规则、并计算其概率
   - PCFG的三个假设：位置不变性、上下文无关、祖先节点无关
-  - 
-
-
-
-
-
-  - 输入句子，输出（短语）句法树 L6, P1-13
-    - 句法树
-      - 短语：NP，VP
-      - 词的词性类别：N，V，DT
-  - 形式语言
-
-    - L6 P14-45
-      - 语法
-      - 推导
-      - 句型和句子
-      - 上下文有关文法
-    - 上下文无关语法 （CFG）L7
-      - 定义 3-5
-      - Chomsky 范式 P6
-      - 构建句法树
-        - CKY 算法 P10-29
-    - 概率上下文无关语法（PCFG）L7 P35-63
-  - 评价 P65-66
-- 基于依存关系的句法分析（依存句法树要会画）
+  - PCFG中的向外、向内概率
+  - PCFGs的三个基本问题：● 计算句子的概率：P(w1 m|G)    ● 为句子找到最优句法树：argmaxt P(t|w1 m;G)     ● 参数学习：求解使得P(w1 m|G) 最大的句法G
+    - 动态规划表求解问题2  ：π(i, j, X)
+- 评价 P65-66
 
 ### （3）依存语法分析（L8）
+- 现代依存语法(dependency grammar)理论
+  - 结构句法可概括为关联、组合、转位这三大核心。句法关联建立起词与词之间的从属关系，这种**从属关系**是由支配词和从属词联结而成；动词是句子的中心，并支配其他成分，它本身不受其他任何成分的支配。
+  - “依存”就是指词与词之间支配与被支配的关系，这种关系不是对等的，而是有方向的。处于支配地位的成分称为**支配者**(governor,regent, head)，而处于被支配地位的成分称为**从属者**(modifier, subordinate, dependency)。
+  - 动词的价数：该动词所能支配的行动元(名词词组)的个数。也就是说，它能支配几个行动元，它就是几价动词。
+  - 有向图中，用带有方向的弧(或称边，edge)来表示两个成分之间的依存关系，支配者在有向弧的发出端，被支配者在箭头端，我们通常说被支配者依存于支配者。
+  - 
+
+  
+- 基于依存关系的句法分析（依存句法树要会画）
+
+
 
 
 
