@@ -126,30 +126,30 @@
     - 2、基于局部上下文的预测方法：直接获得低维词向量的word2vecter(CBOW,SGNG)等。如：**CBOW** + Hierarchical SoftMax、**Skip-Gram** + Negative Sampling
     - 3、二者的结合：如GLoVe
   - 1、分布式词义表示 47-49
-    - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/4a765052-eb79-43fe-8507-6e388d3ef144)
+    - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/4a765052-eb79-43fe-8507-6e388d3ef144" width="350" height="200">
     - 降维 50-51
       - 选择某些维（如TF-IDF）、SVD进行分解、PCA降维
   - 2、基于预测的低维向量
-    ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/99c2fdb8-ba0c-46af-8f52-800d5459cfe4)
+    - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/99c2fdb8-ba0c-46af-8f52-800d5459cfe4" width="500" height="200">
     - **CBOW** + Hierarchical SoftMax    59-75
       - CBOW：用周围词预测中心词，从而利用中心词的预测结果情况，使用GradientDesent方法，不断的去调整周围词的向量。预测次数/复杂度大概是O(V)
       - 分层Softmax：将一个V分类分解为一系列的二分类
         - 输出层是一个基于词频的哈夫曼树
         - 计算达到某个词 Wi 的路径总似然 (σ为Sigmoid函数),即为某个二分类的概率
-        - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/a20f2616-522f-49d4-8c10-81d65ceb7b47)
+        - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/a20f2616-522f-49d4-8c10-81d65ceb7b47" width="350" height="200">
   
     - **Skip-Gram** + Negative Sampling    77-91
       - Skip-Gram: 用中心词来预测周围的词，从而利用周围的词的预测结果情况，使用GradientDecent来不断的调整中心词的词向量。预测次数/复杂度大概是O(KV)，假设上下文窗口为K（即目标词前、后各取K个词）
       - 负例采样分布：
-        - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/c834e930-eee0-43a8-9bde-c4f7d4f5d59a)
-        - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/2fae2784-198d-4189-83f0-0e69a99249e5)
+        - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/c834e930-eee0-43a8-9bde-c4f7d4f5d59a" width="350" height="100">
+        - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/2fae2784-198d-4189-83f0-0e69a99249e5" width="250" height="100">
         - 参数优化调整：误差反传、梯度下降（随机梯度下降法 SGD）
     - 评估 93-96
       - 外部任务、内部任务（词相似度、词类比） 
     - 发展 97-110 
       -GloVe（Global vector）： 利用全局统计信息， 词（目标词）-词（上下文）的同现概率的比例
-      ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/fb6db2a4-3ce8-48dc-ba3f-2c4f2fd7fe37)
-      ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/9f627e35-f5ef-470c-b992-4356603e1f1a)
+      - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/fb6db2a4-3ce8-48dc-ba3f-2c4f2fd7fe37" width="500" height="130">
+      - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/9f627e35-f5ef-470c-b992-4356603e1f1a" width="450" height="130">
 
 
 
@@ -162,7 +162,7 @@
 - 有两种不同的句法结构：依存结构、短语结构
   - 依存结构：说明词和其它词之间的依赖关系（从属关系、支配关系等）。依存关系描述为从head (被修饰的主题) 用箭头指向dependent (修饰语)
   - 短语结构：使用短语结构语法，将句子表示成嵌套的短语成分
-    ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/efc39810-06c2-4f39-bb8a-7fcd68f87b35)
+    - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/efc39810-06c2-4f39-bb8a-7fcd68f87b35" width="500" height="130">
       
 - L6中的句法分析（Parsing）：专指**短语结构**分析
   - 输入：句子； 输出：句法树
@@ -199,15 +199,15 @@
   - 如果一种语言能由几种文法所产生，则把这种语言称为在这几种文法中受限制最多的那种文法所产生的语言。 **例3-5**为上下文无关文法
 
 - CFG（上下文无关文法）产生的语言句子的派生树表示
-  - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/99cad028-6b1d-49c8-b4b2-11443220d309)
-  - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/d2f846d5-b3ef-483e-b291-83651f89f16c)
+  - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/99cad028-6b1d-49c8-b4b2-11443220d309" width="450" height="150">
+  - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/d2f846d5-b3ef-483e-b291-83651f89f16c" width="350" height="200">
 - CFG（上下文无关文法）的二义性
   - 一个文法 G，如果存在某个句子有不只一棵分析树与之对应，那么称这个文法是二义的。
-  - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/707fad7c-8cd1-4a2f-b1cf-2e271dfb20fa)
-![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/c3db0141-09fc-493d-98b4-30568dc7665b)
-![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/a0b916e3-455f-4ebb-8721-82a157904f7d)
-![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/faffb30e-5f18-4d4b-a154-384e8af086cd)
-![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/86e6602c-284a-4fba-abe1-d57c332fd06f)
+  - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/707fad7c-8cd1-4a2f-b1cf-2e271dfb20fa" width="350" height="200">
+- <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/c3db0141-09fc-493d-98b4-30568dc7665b" width="250" height="130">
+- <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/a0b916e3-455f-4ebb-8721-82a157904f7d" width="250" height="130">
+- <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/faffb30e-5f18-4d4b-a154-384e8af086cd" width="250" height="130">
+- <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/86e6602c-284a-4fba-abe1-d57c332fd06f" width="250" height="130">
 
 ### （2）句法分析2（L7）
 - **一个受Chomsky范式约束的CFG句法** G = (T, N, S, R)   所有的 Chomsky 范式的文法都是上下文无关，反过来，所有上下文无关文法都可以有效的变换成等价的 Chomsky 范式的文法
@@ -215,20 +215,20 @@
   - A ——> BC 或 A ——> α
   - 即生成式右侧仅能出现以下两种情况：两个非终结符 / 一个终结符
 - 应用句法规则生成句子、应用句法规则构建句法树
-  -<img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/0398c9f9-4676-4b3c-8054-d59d22488e86" width="200" height="200">
+  -<img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/0398c9f9-4676-4b3c-8054-d59d22488e86" width="400" height="200">
 - **CKY句法分析**
   - CKY算法  P10-29
-    - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/3282b854-9b92-4d34-8a3d-4c36ba842b1d)
-    - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/53b33a18-a8ff-48cf-a9f4-4507c4f5961f)
+    - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/3282b854-9b92-4d34-8a3d-4c36ba842b1d" width="350" height="200">
+    - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/53b33a18-a8ff-48cf-a9f4-4507c4f5961f" width="350" height="300">
     - 例题
-      - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/70fa2c15-737b-4a83-a6d6-0d1cc707e7a4)
+      - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/70fa2c15-737b-4a83-a6d6-0d1cc707e7a4" width="350" height="230">
 - 句法分析可能造成的歧义
   - 词性歧义、名词修饰语歧义、介词短语修饰语歧义、边界歧义
 - **概率上下文无关法**（ Probabilistic context-free grammars (PCFGs）  或者   Stochastic context-free grammars (SCFGs) ）   P35-63
   - 一个概率上下文无关文法可以表示为一个五元组 G = (T, N, S, R, P)
     - 其中，P：概率函数，为每个重写规则赋予一个概率值
-    - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/92534ae4-936f-40b7-a120-ecbbde2e2d3d)
-  - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/831e5468-a9a7-42ca-9b3e-fb0b1a8eccb2)
+    - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/92534ae4-936f-40b7-a120-ecbbde2e2d3d" width="500" height="100">
+  - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/831e5468-a9a7-42ca-9b3e-fb0b1a8eccb2" width="500" height="100">
     - 对于句子s和其可能的句法导出树集合Γ(s)，PCFG为Γ(s)中的每棵树t赋予一个概率 p(t)，即得到候选树按照概率的排序。概率最大对应的树 即为句子S最有可能的句法树
   - PCFG的两个问题：句法规则学习得到PCFG、基于PCFG的句法分析从从多个候选树中找出一个概率最大的树
     - 从treebank（词库）中统计重写规则、并计算其概率
@@ -247,18 +247,18 @@
   - 依存语法的4条公理
     - (1) 一个句子只有一个独立的成分；(2) 句子的其他成分都从属于某一成分；(3) 任何一成分都不能依存于两个或多个成分；(4) 如果成分A直接从属于成分B，而成分C在句子中位于A和B之间，那么，成分C或者从属于A，或者从属于B，或者从属于A和B之间的某一成分。
     - 这4条公理相当于对依存图和依存树的形式约束为：单一父结点(single headed)、连通(connective)、无环(acyclic)、可投射(projective)，因此句子的依存分析结果是一棵有“根(root) ”的树结构。
-    ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/7ea874c7-5be1-4a5c-8fb6-d769fc07ff2c)
+    - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/7ea874c7-5be1-4a5c-8fb6-d769fc07ff2c" width="350" height="200">
 - 依存语法分析方法
   - 建立一个依存句法分析器一般需要完成以下三部分工作： (1) 依存句法结构描述  (2) 分析算法设计与实现  (3) 文法规则或参数学习
   - 依存句法结构描述：一般采用有向图或依存树，所采用的句法分析算法可大致归为以下4类：生成式的分析方法、判别式的分析方法、决策式的(确定性的)分析方法、基于约束满足的分析方法。
     - （1）生成式的分析方法
       - 基本思想：采用联合概率模型Score(x, y|θ)(其中，x 为输入句子，y 为依存分析结构，θ 为模型的参数)生成一系列依存句法树，并赋予其概率分值，然后采用相关算法找到概率打分最高的分析结果作为最后输出。
         - 模型A. 二元词汇亲和模型
-          - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/d4c3a364-570f-4fc3-a252-cb501944d5bb)
+          - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/d4c3a364-570f-4fc3-a252-cb501944d5bb" width="600" height="100">
         - 模型B. 选择偏好模型
-          - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/89de9380-baf9-486c-af43-fd47ef999fbe)
+          - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/89de9380-baf9-486c-af43-fd47ef999fbe" width="650" height="100">
         - 模型C. 递归生成模型
-          - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/7671ff61-79d5-498f-a649-2f85fd995613)
+          - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/7671ff61-79d5-498f-a649-2f85fd995613" width="850" height="100">
     - （2）判别式的分析方法          
       - 基本思想：采用条件概率模型 Score(x|y, θ)，使目标函数 ∏ Score(xi | yi , θ)最大的 θ 作为模型的参数
         - 例如：最大生成树模型(maximum spanning trees, MST)定义整棵句法树的打分是树中各条边打分的加权和。
@@ -267,7 +267,8 @@
         - 1、移进－归约算法：使用Left-Reduce、Right- Reduce 和 Shift  这三种分析动作
           - 当前分析状态的格局是一个三元组：(S, I, A)，S, I, A分别表示栈、未处理结点序列和依存弧集合。
         - 2、Arc-eager 分析算法：使用Left-Arcl、Right-Arcl、Shift、Reduce  这四种分析动作(Actions)
-          - **例题**（P 29-35） ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/2ad1342a-a809-499a-ab96-b20647f47fc4)
+          - **例题**（P 29-35）
+            - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/2ad1342a-a809-499a-ab96-b20647f47fc4" width="350" height="200">
     - （4）基于约束满足的分析方法
       - 基本思想：将依存句法分析过程看作可以用约束满足问题(Constraint satisfaction problem, CSP)来描述的有限构造问题(finite configuration problem)。它不像上下文无关文法那样探索性地生成，而是根据已规定好的约束进行剪裁，把不符合约束的分析去掉，直到留下一棵合法的依存树。  
 - 根据 Arc-eager 算法实现一个基于转换的依存句法分析器。
@@ -284,9 +285,10 @@
     - 依存句法树常见的依存关系标签：root（根节点）、sbj（主语）、obj（宾语）、prep（介词）、nmod（名词修饰语）、nsubj（名词主语）、amod（形容词修饰语）
 - 短语结构与依存结构的关系
   - 短语结构可转换为依存结构。实现方法：(1) 定义中心词抽取规则，产生中心词表;(2) 根据中心词表，为句法树中每个节点选择中心子节点;(3) 将非中心子节点的中心词依存到中心子节点的中心词上，得到相应的依存结构。
-  - **例题**：P 50-54  ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/6d1ae8c7-9e96-4b45-9ba3-35e9ec22074e)
+  - **例题**：P 50-54
+    - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/6d1ae8c7-9e96-4b45-9ba3-35e9ec22074e" width="500" height="300">
 - 汉英句法结构特点对比（P 55-66）
-  - ![image](https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/535ab2f8-ddbd-442f-b3fd-db0fd508482e)
+  - <img src="https://github.com/leopoldwhite/outline-NLP2023/assets/128705197/535ab2f8-ddbd-442f-b3fd-db0fd508482e" width="500" height="150">
     
  
 ## 二、句义分析
